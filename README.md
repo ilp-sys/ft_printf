@@ -4,7 +4,6 @@
 ---
 /* unlike original `printf`, this project doesn't support buffer manegement */<br>
 
-<strong>STATUS</strong> [in progress..🤨]
 
 ## 0. Based Concepts
  - `Variadic arguments ` in <stdarg.h>
