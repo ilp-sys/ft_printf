@@ -2,7 +2,7 @@
 
     Custom printf of 42 C School <br>
 ---
-/* unlike original `printf` it doesn't support buffer manegement */<br>
+/* unlike original `printf` this project doesn't support buffer manegement */<br>
 
 <center><b>STATUS</b> [in progress..🤨]</center>
 
