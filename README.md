@@ -1,21 +1,23 @@
 # FT_PRINTF
-Custom printf which follows subject of 42 C School <br>
-/* unlike original `printf` it doesn't have buffer manegement */
+
+    Custom printf of 42 C School <br>
 ---
-STATUS[in progress..🤨]
+/* unlike original `printf` it doesn't have buffer manegement */<br>
 
-### 0. Based Concepts
- - variadic arguments in <stdarg.h>
- - hadling a number of arguments
- - condition checks using flags (or bitwise calculation)
+<center><b>STATUS</b> [in progress..🤨]</center>
 
-### 1. Implementation
+## 0. Based Concepts
+ - `Variadic arguments ` in <stdarg.h>
+ - Handling a number of arguments
+ - Condition checks using `flags` (or `bitwise calculation`)
 
-### 2. Makefile
+## 1. Implementation
 
-### 3. Reference
+## 2. Makefile
+
+## 3. Reference
 printf in [tovalds github](https://github.com/torvalds/linux/blob/master/arch/x86/boot/printf.c) and [apple opensource](https://opensource.apple.com/source/xnu/xnu-201/osfmk/kern/printf.c.auto.html)
 
 ---
 Any suggestions or inputs are always welcomed! <br>
-More details are archived in my [personal blog](https://velog.io/@ilp-sys)(Korean)
+More details are in my [personal blog](https://velog.io/@ilp-sys)(Korean)
