@@ -1,10 +1,10 @@
 # FT_PRINTF
 
-    Custom printf of 42 C School <br>
+    Custom printf of 42 C School
 ---
 /* unlike original `printf`, this project doesn't support buffer manegement */<br>
 
-<center><b>STATUS</b> [in progress..🤨]</center>
+<strong>STATUS</strong> [in progress..🤨]
 
 ## 0. Based Concepts
  - `Variadic arguments ` in <stdarg.h>
