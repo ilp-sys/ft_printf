@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:55:33 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/15 22:32:30 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/16 13:16:20 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ int	skip_atoi(const char ***s)
 	return (i);
 }
 
-int	left_adjust(int *width)
+int	left_adjust(int len, int *width)
 {
 	int	printed;
 
 	printed = 0;
-	while (--(*width) > 0)
+	while (--(*width) > len)
 	{
 		ft_putchar(' ');
 		printed++;

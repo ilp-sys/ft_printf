@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 20:23:29 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/15 22:29:55 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/16 14:46:59 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
-//for bit masking
 # define ZEROPAD 1
 # define SIGN    2
 # define PLUS    4
@@ -43,19 +42,19 @@ int		skip_atoi(const char ***s);
 int		ft_printf(const char *fmt, ...);
 int		ft_vsprintf(const char *fmt, va_list args);
 
-//fr_printf_conversion1.c & fr_printf_conversion2.c
-int		conversion_c(t_info info, va_list *args);
-int		conversion_s(t_info info, va_list *args);
-int		conversion_percent(va_list *args);
-int		conversion_p(t_info info, va_list *args);
-int		conversion_int(t_info info, va_list *args);
-int		conversion_x(t_info nfo, va_list *args);
-
 //ft_printf_check.c
 int		check_flag(const char **fmt);
 int		check_width(const char **fmt);
 int		check_precision(const char **fmt);
 int		check_conversion(t_info info, const char *fmt, va_list args);
+
+//fr_printf_conversion1.c & fr_printf_conversion2.c
+int		conversion_c(t_info info, va_list *args);
+int		conversion_s(t_info info, va_list *args);
+int		conversion_percent();
+int		conversion_p(t_info info, va_list *args);
+int		conversion_int(t_info info, va_list *args);
+int		conversion_x(t_info nfo, va_list *args);
 
 //ft_printf_print_numbers.c
 int		print_numbers(long num, int base, t_info info);

@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 22:42:22 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/15 22:43:00 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/16 13:39:39 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,24 @@
 
 int	conversion_p(t_info info, va_list *args)
 {
-	int	base;
-	int	printed;
-
-	base = 16;
 	if (info.width == -1)
 	{
 		info.width = 2 * sizeof(void *);
 		info.flag |= ZEROPAD;
 	}
-	printed = print_numbers((unsigned long)va_arg(*args, void *, base, info));
-	return (printed);
+	return (print_numbers((unsigned long)va_arg(*args, void *), BASE_HEX, info));
 }
 
 int	conversion_int(t_info info, va_list *args)
 {
+	if (info.flag & SIGN)
+		return (print_numbers(va_arg(*args, unsigned int), BASE_DEC, info));
 	return (print_numbers(va_arg(*args, int), BASE_DEC, info));
 }
 
 int	conversion_x(t_info info, va_list *args)
 {
-	return (print_numbers(va_arg(*args, unsigned int), BASE_HEX, info));
+	if (info.flag & SIGN)
+		return (print_numbers(va_arg(*args, unsigned int), BASE_HEX, info));
+	return (print_numbers(va_arg(*args, int), BASE_HEX, info));
 }

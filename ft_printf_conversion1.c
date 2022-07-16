@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 22:39:21 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/15 22:40:45 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/16 13:16:56 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,16 @@ int	conversion_c(t_info info, va_list *args)
 
 int	conversion_s(t_info info, va_list *args)
 {
-	int		i;
-	int		len;
-	int		printed;
-	char	*s;
+	int			i;
+	int			len;
+	int			printed;
+	const char	*s = va_arg(*arg, char *);
 
 	i = 0;
 	printed = 0;
-	s = va_arg(*args, char *);
-	if (!(info.flag & LEFT))
-		printed += left_adjust(&info.width);
 	len = ft_strnlen(s, info.precision);
+	if (!(info.flag & LEFT))
+		printed += left_adjust(len, &info.width);
 	while (i++ < len)
 	{
 		ft_putchar(*s++);
@@ -52,7 +51,7 @@ int	conversion_s(t_info info, va_list *args)
 	return (printed);
 }
 
-int	conversion_percent(va_list *args)
+int	conversion_percent()
 {
 	ft_putchar('%');
 	return (1);
