@@ -11,14 +11,6 @@
 /* ************************************************************************** */
 
 //handles %p, %x, %X, %d, %i, %u
-
-
-#define __do_div(n, base)({\
-		int __res;\
-		__res = ((unsigned long) n) % (unsigned)base; \
-		n = ((unsigned long) n) / (unsigned) base; \
-		__res; })
-
                                    // size, precision, type
 								   // width, precision, flag
 int	print_numbers(long num, int base, t_info info)

@@ -8,14 +8,27 @@
 ## 0. Based Concepts
  - `Variadic arguments ` in <stdarg.h>
  - Handling a number of arguments
+ - Standard output's `buffer I/O`
  - Condition checks using `flags` (or `bitwise calculation`)
 
 ## 1. Implementation
 
+#### - Structure of printf's arguments
+
+#### - How the buffer works?
+
+#### - Relations among the flags
+
 ## 2. Makefile
 
 ## 3. Reference
-printf in [tovalds github](https://github.com/torvalds/linux/blob/master/arch/x86/boot/printf.c) and [apple opensource](https://opensource.apple.com/source/xnu/xnu-201/osfmk/kern/printf.c.auto.html)
+	opensource
+	- [tovalds github](https://github.com/torvalds/linux/blob/master/arch/x86/boot/printf.c) 
+	- [apple opensource](https://opensource.apple.com/source/xnu/xnu-201/osfmk/kern/printf.c.auto.html)
+	printf in general
+	- [cpp reference](https://en.cppreference.com/w/c/io/fprintf)
+	about buffer
+	- [setbuf linx man page](https://man7.org/linux/man-pages/man3/setvbuf.3.html)
 
 ---
 Any suggestions or inputs are always welcomed! <br>

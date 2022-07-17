@@ -12,26 +12,17 @@
 
 #include "libftprintf.h"
 
-int	conversion_p(t_info info, va_list *args)
+char	*conversion_p(char *str, t_info info, va_list *args)
 {
-	if (info.width == -1)
-	{
-		info.width = 2 * sizeof(void *);
-		info.flag |= ZEROPAD;
-	}
-	return (print_numbers((unsigned long)va_arg(*args, void *), BASE_HEX, info));
+	return (str);
 }
 
-int	conversion_int(t_info info, va_list *args)
+char	*conversion_int(char *str, t_info info, va_list *args)
 {
-	if (info.flag & SIGN)
-		return (print_numbers(va_arg(*args, unsigned int), BASE_DEC, info));
-	return (print_numbers(va_arg(*args, int), BASE_DEC, info));
+	return (str);
 }
 
-int	conversion_x(t_info info, va_list *args)
+char	*conversion_x(char *str, t_info info, va_list *args)
 {
-	if (info.flag & SIGN)
-		return (print_numbers(va_arg(*args, unsigned int), BASE_HEX, info));
-	return (print_numbers(va_arg(*args, int), BASE_HEX, info));
+	return (str);
 }

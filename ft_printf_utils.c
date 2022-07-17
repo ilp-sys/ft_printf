@@ -37,3 +37,12 @@ int	left_adjust(int len, int *width)
 	}
 	return (printed);
 }
+
+int do_div(unsigned long n, unsigned long base)
+{
+	int	res;
+
+	res = n % base;
+	n /= base;
+	return (res);
+}

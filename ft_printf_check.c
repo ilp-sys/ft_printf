@@ -62,29 +62,27 @@ int	check_precision(const char **fmt)
 	return (precision);
 }
 
-int	check_conversion(t_info info, const char **fmt, va_list args)
+char	*check_conversion(char * str, t_info info, const char **fmt, va_list args)
 {
-	int	printed;
-
 	if (**fmt == 'c')
-		printed += conversion_c(info, &args);
+		str = conversion_c(str, info, &args);
 	else if (**fmt == 's')
-		printed += conversion_s(info, &args);
+		str = conversion_s(str, info, &args);
 	else if (**fmt == 'p')
-		printed += conversion_p(info, &args);
+		str = conversion_p(str, info, &args);
 	else if (**fmt == 'd' || **fmt == 'i' || **fmt == 'u')
 	{
 		if (**fmt == 'd' || **fmt == 'i')
 			flag |= SIGN;
-		printed += conversion_int(info, &args);
+		str = conversion_int(str, info, &args);
 	}
 	else if (**fmt == 'x' || **fmt == 'X')
 	{
 		if (**fmt == 'x')
 			flag |= SMALL;
-		printed += conversion_x(info, &args);
+		str = conversion_x(str, info, &args);
 	}
 	else if (**fmt == '%')
-		printed += conversion_percent(&args);
-	return (printed);
+		str = conversion_percent(str, &args);
+	return (str);
 }

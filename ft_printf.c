@@ -12,36 +12,38 @@
 
 #include "libftprintf.h"
 
-int	ft_vsprintf(const char *fmt, va_list args)
+int	ft_vsprintf(char *buf, const char *fmt, va_list args)
 {
-	int		printed;
+	char	*str;
 	t_info	info;
 
-	printed = 0;
+	str = buf;
 	while (*fmt)
 	{
 		if (*fmt != '%')
 		{
-			ft_putchar(*fmt++);
-			printed++;
+			*str++ = *fmt++;
 			continue ;
 		}
 		info.flag = check_flag(&fmt);
 		info.width = check_width(&fmt);
 		info.precision = check_precision(&fmt);
-		printed += check_conversion(info, &fmt, args);
+		str = check_conversion(str, info, &fmt, args);
 		fmt++;
 	}
-	return (printed);
+	*str = '\0';
+	return (str - buf);
 }
 
 int	ft_printf(const char *fmt, ...)
 {
-	int		printed;
+	char	buf[BUFSIZE];
 	va_list	args;
+	int		printed;
 
 	va_start(args, fmt);
-	printed = ft_vsprintf(fmt, args);
+	printed = ft_vsprintf(buf, fmt, args);
 	va_end(args);
+	ft_puts(buf);
 	return (printed);
 }
