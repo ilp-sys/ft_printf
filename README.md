@@ -22,13 +22,10 @@
 ## 2. Makefile
 
 ## 3. Reference
-	opensource
-	- [tovalds github](https://github.com/torvalds/linux/blob/master/arch/x86/boot/printf.c) 
-	- [apple opensource](https://opensource.apple.com/source/xnu/xnu-201/osfmk/kern/printf.c.auto.html)
-	printf in general
-	- [cpp reference](https://en.cppreference.com/w/c/io/fprintf)
-	about buffer
-	- [setbuf linx man page](https://man7.org/linux/man-pages/man3/setvbuf.3.html)
+[tovalds github](https://github.com/torvalds/linux/blob/master/arch/x86/boot/printf.c) 
+[apple opensource](https://opensource.apple.com/source/xnu/xnu-201/osfmk/kern/printf.c.auto.html)
+[cpp reference](https://en.cppreference.com/w/c/io/fprintf)
+[setbuf linx man page](https://man7.org/linux/man-pages/man3/setvbuf.3.html)
 
 ---
 Any suggestions or inputs are always welcomed! <br>
