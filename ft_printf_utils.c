@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:55:33 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/16 13:16:20 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/18 12:50:43 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ int	skip_atoi(const char ***s)
 	return (i);
 }
 
-char	*set_width(char *str, int len, int *width)
+char	*set_width(char *str, int len, char c, int *width)
 {
 	while (len < *width--)
-		*str++ = ' ';
+		*str++ = c;
 	return (str);
 }
 
-int do_div(unsigned long n, unsigned long base)
+int	do_div(unsigned long *n, unsigned long base)
 {
 	int	res;
 
-	res = n % base;
-	n /= base;
+	res = *n % base;
+	*n /= base;
 	return (res);
 }

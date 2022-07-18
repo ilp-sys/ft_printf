@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 22:44:10 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/16 12:56:15 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/18 12:48:56 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ int	check_precision(const char **fmt)
 	return (precision);
 }
 
-char	*check_conversion(char * str, t_info info, const char **fmt, va_list args)
+char	*check_conversion(char *str, t_info info, \
+		const char **fmt, va_list args)
 {
 	if (**fmt == 'c')
 		str = conversion_c(str, info, &args);
