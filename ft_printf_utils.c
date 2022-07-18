@@ -25,17 +25,11 @@ int	skip_atoi(const char ***s)
 	return (i);
 }
 
-int	left_adjust(int len, int *width)
+char	*set_width(char *str, int len, int *width)
 {
-	int	printed;
-
-	printed = 0;
-	while (--(*width) > len)
-	{
-		ft_putchar(' ');
-		printed++;
-	}
-	return (printed);
+	while (len < *width--)
+		*str++ = ' ';
+	return (str);
 }
 
 int do_div(unsigned long n, unsigned long base)

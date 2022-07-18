@@ -13,7 +13,7 @@
 //handles %p, %x, %X, %d, %i, %u
                                    // size, precision, type
 								   // width, precision, flag
-int	print_numbers(long num, int base, t_info info)
+char	*print_numbers(char *str, long num, int base, t_info info)
 {
 	static const char digits[16] = "0123456789ABCDEF";
 

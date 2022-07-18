@@ -36,8 +36,8 @@ typedef struct s_info
 }				t_info;
 
 //ft_printf_utils.c
-int		left_adjust(int *width);
 int		skip_atoi(const char ***s);
+char	*set_width(char *str, int len, int *width);
 int		do_div(unsigned long n, unsigned long base);
 
 //ft_printf.c

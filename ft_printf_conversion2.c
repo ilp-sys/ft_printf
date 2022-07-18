@@ -14,15 +14,29 @@
 
 char	*conversion_p(char *str, t_info info, va_list *args)
 {
+	if (info.width == -1)
+	{
+		info.width = 2 * sizeof(void *);
+		info.flag |= ZEROPAD;
+	}
+	str = print_numbers(str, (unsigned long)va_arg(args, void*), BASE_HEX, info);
 	return (str);
 }
 
 char	*conversion_int(char *str, t_info info, va_list *args)
 {
+	if (info.flag & SIGN)
+		str = print_numbers(str, va_arg(args, int), BASE_DEC, info);
+	else
+		str = print_numbers(str, va_arg(args, unsigned int), BASE_DEC, info);
 	return (str);
 }
 
 char	*conversion_x(char *str, t_info info, va_list *args)
 {
+	if (info.flag & SIGN)
+		str = print_numbers(str, va_arg(args, int), BASE_HEX, info);
+	else
+		str = print_numbers(str, va_arg(args, unsigned int), BASE_HEX, info);
 	return (str);
 }

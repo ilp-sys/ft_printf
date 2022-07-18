@@ -17,9 +17,9 @@ char	*conversion_c(char *str, t_info info, va_list *args)
 	char	c;
 
 	if (!(info.flag & LEFT))
-		printed += left_adjust(&info.width);
-	c = va_arg(*args, int);
-	ft_putchar(c);
+		str = set_width(str, 0, &info.width);
+	*str++ = va_arg(*args, int);
+	str = set_width(str, 0, &info.width);
 	return (str);
 }
 
@@ -32,15 +32,9 @@ char	*conversion_s(char *str, t_info info, va_list *args)
 	i = 0;
 	len = ft_strnlen(s, info.precision);
 	if (!(info.flag & LEFT))
-		printed += left_adjust(len, &info.width);
-	while (i++ < len)
-	{
-		ft_putchar(*s++);
-	}
-	while (len < width--)
-	{
-		ft_putchar(' ');
-	}
+		str = set_width(str, len, &info.width);
+	ft_strncat(str, s, len);
+	str = set_width(str, len, &info.width);
 	return (str);
 }
 
