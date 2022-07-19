@@ -22,7 +22,7 @@ char	*conversion_p(char *str, t_info info, va_list args)
 		info.flag |= ZEROPAD;
 	}
 	p = va_arg(args, void *);
-	str = print_numbers(str, p, BASE_HEX, info);
+	str = print_numbers(str, (long)p, BASE_HEX, info);
 	return (str);
 }
 

@@ -21,7 +21,7 @@ char	*print_numbers(char *str, long num, int base, t_info info)
 	char	*tmp;
 
 	print_numbers_set_flag(&c, &sign, base, &info);
-	print_numbers_set_sign(&sign, num, t_info info);
+	print_numbers_set_sign(&sign, num, info);
 	tmp = print_numbers_get_digits(num, base, locase);
 	str = print_numbers_fill_str1(str, tmp, sign, info);
 	str = print_numbers_fill_str2(str, tmp, c, info);
