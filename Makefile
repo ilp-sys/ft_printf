@@ -6,7 +6,7 @@
 #    By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 16:30:39 by jiwahn            #+#    #+#              #
-#    Updated: 2022/07/19 11:50:07 by jiwahn           ###   ########.fr        #
+#    Updated: 2022/07/19 19:47:33 by jiwahn           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,17 +19,39 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar
 ARFLAGS = -rcs
 
-OBJDIR = ./obj/
-LIBFTDIR = ./libft/
+RM = rm
 
-SRCS : ft_printf.c \
-	ft_printf_utils.c \
-	ft_printf_check.c \
-	ft_printf_conversion1.c \
-	ft_printf_conversion2.c \
-	ft_printf_print_numbers.c \
-	ft_printf_print_numbers_utils.c
+LIBFT_DIR = ./libft/
+LIBFT_LIB = libft.a
+
+SRCS = ft_printf.c ft_printf_utils.c ft_printf_check.c \
+	ft_printf_conversion1.c ft_printf_conversion2.c \
+	ft_printf_print_numbers.c ft_printf_print_numbers_utils.c
+
+OBJ_DIR = ./obj/
+OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 
 all : $(NAME)
 
-$(NAME) = $(OBJS)
+clean :
+	$(RM) -f $(OBJS)
+	rmdir $(OBJ_DIR)
+
+fclean : clean
+	$(RM) -f $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
+
+re : fclean all
+
+bonus : all
+
+$(NAME) : $(OBJS)
+	$(MAKE) -C $(LIBFT_DIR) all
+	cp $(LIBFT_DIR)$(LIBFT_LIB) $@
+	$(AR) $(ARFLAGS) $@ $^
+	 
+$(OBJ_DIR)%.o : %.c
+	@mkdir -p obj
+	@$(CC) $(CFLAGS) $< -c -o $@
+
+.PHONY : all clean fclean re bonus
