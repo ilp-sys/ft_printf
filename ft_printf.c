@@ -6,11 +6,11 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:33:38 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 15:48:44 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 20:03:12 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_vsprintf(char *buf, const char *fmt, va_list args)
 {

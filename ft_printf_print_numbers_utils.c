@@ -6,11 +6,11 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 12:51:02 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 15:41:49 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 20:12:03 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	print_numbers_set_flag(t_chars *chars, int base, t_info *info)
 {

@@ -6,11 +6,11 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:56:45 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 15:01:37 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 20:10:40 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 char	*print_numbers(char *str, long num, int base, t_info info)
 {

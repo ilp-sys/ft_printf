@@ -6,11 +6,11 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:55:33 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 14:31:27 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 20:03:53 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	skip_atoi(const char ***s)
 {

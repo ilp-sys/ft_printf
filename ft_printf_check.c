@@ -6,11 +6,11 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 22:44:10 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 14:35:08 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 20:04:08 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	check_flag(const char **fmt)
 {
