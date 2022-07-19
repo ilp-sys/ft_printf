@@ -6,28 +6,28 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 22:39:21 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/18 12:10:56 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 13:36:46 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*conversion_c(char *str, t_info info, va_list *args)
+char	*conversion_c(char *str, t_info info, va_list args)
 {
 	char	c;
 
 	if (!(info.flag & LEFT))
 		str = set_width(str, 0, ' ', &info.width);
-	*str++ = va_arg(*args, int);
+	*str++ = va_arg(args, int);
 	str = set_width(str, 0, ' ', &info.width);
 	return (str);
 }
 
-char	*conversion_s(char *str, t_info info, va_list *args)
+char	*conversion_s(char *str, t_info info, va_list args)
 {
 	int			i;
 	int			len;
-	const char	*s = va_arg(*arg, char *);
+	const char	*s = va_arg(args, char *);
 
 	i = 0;
 	len = ft_strnlen(s, info.precision);

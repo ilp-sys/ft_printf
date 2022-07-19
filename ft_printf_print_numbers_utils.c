@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 12:51:02 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/18 12:55:29 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 12:57:48 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,11 @@ static void	print_numbers_set_sign(char *sign, long num, t_info *info)
 static char	*print_numbers_get_digits(long num, int base, int locase)
 {
 	int					i;
-	char				tmp[66];
+	char				*tmp;
 	static const char	digits[16] = "0123456789ABCDEF";
 
 	i = 0;
+	tmp = (char *)malloc(sizeof(char) * 66);
 	if (num == 0)
 		tmp[i++] = '0';
 	else
@@ -74,8 +75,8 @@ static char	*print_numbers_fill_str1(char *str, char *tmp, \
 
 	i = ft_strlen(tmp);
 	if (i > info.precision)
-		precision = i;
-	info.width -= precision;
+		info.precision = i;
+	info.width -= info.precision;
 	if (!(info.flag & (ZEROPAD + LEFT)))
 		str = set_width(str, 0, ' ', &info.width);
 	if (sign)
@@ -95,7 +96,7 @@ static char	*print_numbers_fill_str2(char *str, char *tmp, char c, t_info info)
 	i = ft_strlen(tmp);
 	if (!(info.flag & LEFT))
 		str = set_width(str, 0, c, &info.width);
-	while (i < precision--)
+	while (i < info.precision--)
 		*str++ = '0';
 	while (i-- > 0)
 		*str++ = tmp[i];

@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:33:38 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/15 22:26:19 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 13:44:20 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ int	ft_printf(const char *fmt, ...)
 	va_start(args, fmt);
 	printed = ft_vsprintf(buf, fmt, args);
 	va_end(args);
-	ft_puts(buf);
+	ft_putstr_fd(buf, 1);
 	return (printed);
 }

@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 20:23:29 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/18 12:49:46 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 13:35:21 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ int			check_flag(const char **fmt);
 int			check_width(const char **fmt);
 int			check_precision(const char **fmt);
 char		*check_conversion(char *str, t_info info, \
-		const char *fmt, va_list args);
+		const char **fmt, va_list args);
 
 //fr_printf_conversion1.c & fr_printf_conversion2.c
-char		*conversion_c(char *str, t_info info, va_list *args);
-char		*conversion_s(char *str, t_info info, va_list *args);
+char		*conversion_c(char *str, t_info info, va_list args);
+char		*conversion_s(char *str, t_info info, va_list args);
 char		*conversion_percent(char *str);
-char		*conversion_p(char *str, t_info info, va_list *args);
-char		*conversion_int(char *str, t_info info, va_list *args);
-char		*conversion_x(char *str, t_info info, va_list *args);
+char		*conversion_p(char *str, t_info info, va_list args);
+char		*conversion_int(char *str, t_info info, va_list args);
+char		*conversion_x(char *str, t_info info, va_list args);
 
 //ft_printf_print_numbers.c
 char		*print_numbers(char *str, long num, int base, t_info info);

@@ -6,13 +6,13 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 22:42:22 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/18 13:25:40 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 13:36:15 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*conversion_p(char *str, t_info info, va_list *args)
+char	*conversion_p(char *str, t_info info, va_list args)
 {
 	void	*p;
 
@@ -26,7 +26,7 @@ char	*conversion_p(char *str, t_info info, va_list *args)
 	return (str);
 }
 
-char	*conversion_int(char *str, t_info info, va_list *args)
+char	*conversion_int(char *str, t_info info, va_list args)
 {
 	if (info.flag & SIGN)
 		str = print_numbers(str, va_arg(args, int), BASE_DEC, info);
@@ -35,7 +35,7 @@ char	*conversion_int(char *str, t_info info, va_list *args)
 	return (str);
 }
 
-char	*conversion_x(char *str, t_info info, va_list *args)
+char	*conversion_x(char *str, t_info info, va_list args)
 {
 	if (info.flag & SIGN)
 		str = print_numbers(str, va_arg(args, int), BASE_HEX, info);

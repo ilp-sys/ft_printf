@@ -6,29 +6,30 @@
 #    By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 16:30:39 by jiwahn            #+#    #+#              #
-#    Updated: 2022/07/18 17:50:30 by jiwahn           ###   ########.fr        #
+#    Updated: 2022/07/19 11:50:07 by jiwahn           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
 
 NAME = libftprintf.a
 
-SRCS = $(wildcard *.c)
-OBJS = $(SRCS.c=.o)
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-$(NAME) : $(OBJS)
-	ar -rcs $@ $^
+AR = ar
+ARFLAGS = -rcs
+
+OBJDIR = ./obj/
+LIBFTDIR = ./libft/
+
+SRCS : ft_printf.c \
+	ft_printf_utils.c \
+	ft_printf_check.c \
+	ft_printf_conversion1.c \
+	ft_printf_conversion2.c \
+	ft_printf_print_numbers.c \
+	ft_printf_print_numbers_utils.c
 
 all : $(NAME)
 
-clean : 
-	rm -f $(OBJS)
-
-fclean : clean
-	rm -f $(NAME)
-
-re : all
-
-.PHONY : all clean fclean re
-
+$(NAME) = $(OBJS)

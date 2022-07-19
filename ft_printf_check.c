@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 22:44:10 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/18 12:48:56 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 13:38:34 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,24 +66,24 @@ char	*check_conversion(char *str, t_info info, \
 		const char **fmt, va_list args)
 {
 	if (**fmt == 'c')
-		str = conversion_c(str, info, &args);
+		str = conversion_c(str, info, args);
 	else if (**fmt == 's')
-		str = conversion_s(str, info, &args);
+		str = conversion_s(str, info, args);
 	else if (**fmt == 'p')
-		str = conversion_p(str, info, &args);
+		str = conversion_p(str, info, args);
 	else if (**fmt == 'd' || **fmt == 'i' || **fmt == 'u')
 	{
 		if (**fmt == 'd' || **fmt == 'i')
-			flag |= SIGN;
-		str = conversion_int(str, info, &args);
+			info.flag|= SIGN;
+		str = conversion_int(str, info, args);
 	}
 	else if (**fmt == 'x' || **fmt == 'X')
 	{
 		if (**fmt == 'x')
-			flag |= SMALL;
-		str = conversion_x(str, info, &args);
+			info.flag |= SMALL;
+		str = conversion_x(str, info, args);
 	}
 	else if (**fmt == '%')
-		str = conversion_percent(str, &args);
+		str = conversion_percent(str);
 	return (str);
 }
