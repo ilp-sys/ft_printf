@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 20:23:29 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 13:35:21 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 15:02:32 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,17 @@ typedef struct s_info
 	int	precision;
 }				t_info;
 
+typedef struct	s_chars
+{
+	char	c;
+	char	sign;
+	char	locase;
+}				t_chars;
+
 //ft_printf_utils.c
 int			skip_atoi(const char ***s);
 char		*set_width(char *str, int len, char c, int *width);
-int			do_div(unsigned long *n, unsigned long base);
+int			do_div(long *n, long base);
 
 //ft_printf.c
 int			ft_printf(const char *fmt, ...);
@@ -63,12 +70,10 @@ char		*conversion_x(char *str, t_info info, va_list args);
 char		*print_numbers(char *str, long num, int base, t_info info);
 
 //ft_printf_print_numbers_utils.c
-static void	print_numbers_set_flag(char *c, char *locase, \
-		int base, t_info *info);
-static void	print_numbers_set_sign(char *sign, long num, t_info *info);
-static char	*print_numbers_get_digits(long num, int base, int locase);
-static char	*print_numbers_fill_str1(char *str, char *tmp, \
-		char sign, t_info info);
-static char	*print_numbers_fill_str2(char *str, char *tmp, char c, t_info info);
+void		print_numbers_set_flag(t_chars *chars, int base, t_info *info);
+void		print_numbers_set_sign(t_chars *chars, long num, t_info *info);
+char		*print_numbers_get_digits(long num, int base, t_chars *chars);
+char		*print_numbers_fill_str(char *str, char *tmp, \
+		t_chars chars, t_info info);
 
 #endif

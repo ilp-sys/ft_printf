@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:55:33 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/18 12:50:43 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 14:31:27 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*set_width(char *str, int len, char c, int *width)
 	return (str);
 }
 
-int	do_div(unsigned long *n, unsigned long base)
+int	do_div(long *n, long base)
 {
 	int	res;
 

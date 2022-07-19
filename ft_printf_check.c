@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 22:44:10 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 13:38:34 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 14:35:08 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	*check_conversion(char *str, t_info info, \
 	else if (**fmt == 'd' || **fmt == 'i' || **fmt == 'u')
 	{
 		if (**fmt == 'd' || **fmt == 'i')
-			info.flag|= SIGN;
+			info.flag |= SIGN;
 		str = conversion_int(str, info, args);
 	}
 	else if (**fmt == 'x' || **fmt == 'X')

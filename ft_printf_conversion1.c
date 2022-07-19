@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 22:39:21 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 13:36:46 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 14:20:15 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 char	*conversion_c(char *str, t_info info, va_list args)
 {
-	char	c;
-
 	if (!(info.flag & LEFT))
 		str = set_width(str, 0, ' ', &info.width);
 	*str++ = va_arg(args, int);

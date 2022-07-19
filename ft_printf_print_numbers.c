@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:56:45 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 12:59:17 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 15:01:37 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,13 @@
 
 char	*print_numbers(char *str, long num, int base, t_info info)
 {
-	int		i;
-	char	c;
-	char	sign;
-	char	locase;
 	char	*tmp;
+	t_chars	chars;
 
-	print_numbers_set_flag(&c, &sign, base, &info);
-	print_numbers_set_sign(&sign, num, info);
-	tmp = print_numbers_get_digits(num, base, locase);
-	str = print_numbers_fill_str1(str, tmp, sign, info);
-	str = print_numbers_fill_str2(str, tmp, c, info);
+	print_numbers_set_flag(&chars, base, &info);
+	print_numbers_set_sign(&chars, num, &info);
+	tmp = print_numbers_get_digits(num, base, &chars);
+	str = print_numbers_fill_str(str, tmp, chars, info);
 	free(tmp);
 	return (str);
 }

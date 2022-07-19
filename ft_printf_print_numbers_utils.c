@@ -6,52 +6,51 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 12:51:02 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 12:57:48 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 15:41:49 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static void	print_numbers_set_flag(char *c, \
-		char *locase, int base, t_info *info)
+void	print_numbers_set_flag(t_chars *chars, int base, t_info *info)
 {
-	*locase = (info->flag & SMALL);
+	chars->locase = (info->flag & SMALL);
 	if (info->flag & LEFT)
 		info->flag &= ~ZEROPAD;
 	if (info->flag == '0')
-		*c = '0';
+		chars->c = '0';
 	else
-		*c = ' ';
+		chars->c = ' ';
 	if (info->flag & SPECIAL)
 		if (base == BASE_HEX)
 			info->width -= 2;
 }
 
-static void	print_numbers_set_sign(char *sign, long num, t_info *info)
+void	print_numbers_set_sign(t_chars *chars, long num, t_info *info)
 {
-	*sign = 0;
+	chars->sign = 0;
 	if (info->flag & SIGN)
 	{
 		if (num < 0)
 		{
-			*sign = '-';
+			chars->sign = '-';
 			num = -num;
 			info->width--;
 		}
 		else if (info->flag & PLUS)
 		{
-			*sign = '+';
+			chars->sign = '+';
 			info->width--;
 		}
 		else if (info->flag & SPACE)
 		{
-			*sign = ' ';
+			chars->sign = ' ';
 			info->width--;
 		}
 	}
 }
 
-static char	*print_numbers_get_digits(long num, int base, int locase)
+char	*print_numbers_get_digits(long num, int base, t_chars *chars)
 {
 	int					i;
 	char				*tmp;
@@ -59,17 +58,19 @@ static char	*print_numbers_get_digits(long num, int base, int locase)
 
 	i = 0;
 	tmp = (char *)malloc(sizeof(char) * 66);
+	if (!tmp)
+		return (NULL);
 	if (num == 0)
 		tmp[i++] = '0';
 	else
 		while (num != 0)
-			tmp[i++] = (digits[do_div(&num, base)] | locase);
+			tmp[i++] = (digits[do_div(&num, base)] | chars->locase);
 	tmp[i] = '\0';
 	return (tmp);
 }
 
-static char	*print_numbers_fill_str1(char *str, char *tmp, \
-		char sign, t_info info)
+char	*print_numbers_fill_str(char *str, char *tmp, \
+		t_chars chars, t_info info)
 {
 	int	i;
 
@@ -79,23 +80,15 @@ static char	*print_numbers_fill_str1(char *str, char *tmp, \
 	info.width -= info.precision;
 	if (!(info.flag & (ZEROPAD + LEFT)))
 		str = set_width(str, 0, ' ', &info.width);
-	if (sign)
-		*str++ = sign;
+	if (chars.sign)
+		*str++ = chars.sign;
 	if (info.flag & SPECIAL)
 	{
 		*str++ = '0';
-		*str++ = ('X' | locase);
+		*str++ = ('X' | chars.locase);
 	}
-	return (str);
-}
-
-static char	*print_numbers_fill_str2(char *str, char *tmp, char c, t_info info)
-{
-	int	i;
-
-	i = ft_strlen(tmp);
 	if (!(info.flag & LEFT))
-		str = set_width(str, 0, c, &info.width);
+		str = set_width(str, 0, chars.c, &info.width);
 	while (i < info.precision--)
 		*str++ = '0';
 	while (i-- > 0)
