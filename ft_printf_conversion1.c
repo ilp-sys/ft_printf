@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 22:39:21 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 14:20:15 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/19 17:09:31 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,14 @@ char	*conversion_s(char *str, t_info info, va_list args)
 	const char	*s = va_arg(args, char *);
 
 	i = 0;
-	len = ft_strnlen(s, info.precision);
+	if (info.precision != -1)
+		len = ft_strnlen(s, info.precision);
+	else 
+		len = ft_strlen(s);
 	if (!(info.flag & LEFT))
 		str = set_width(str, len, ' ', &info.width);
-	ft_strncat(str, s, len);
+	while (*s)
+		*str++ = *s++;
 	str = set_width(str, len, ' ', &info.width);
 	return (str);
 }
