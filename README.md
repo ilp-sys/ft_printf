@@ -28,5 +28,8 @@
 [setbuf linx man page](https://man7.org/linux/man-pages/man3/setvbuf.3.html)<br>
 
 ---
+[Tester](https://github.com/paulo-santana/ft_printf_tester) 
+
+---
 Any suggestions or inputs are always welcomed! <br>
 More details are in my [personal blog](https://velog.io/@ilp-sys)(Korean)

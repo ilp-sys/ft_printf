@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 20:23:29 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/20 09:30:46 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/20 12:06:19 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFTPRINTF_H
 
 # include <stdarg.h>
+# include <stdint.h>
 # include "libft/libft.h"
 
 # define ZEROPAD 1
