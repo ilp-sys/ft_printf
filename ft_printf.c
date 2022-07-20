@@ -6,11 +6,17 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:33:38 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 20:03:12 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/20 13:54:35 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_printf_output(int printed, char *buf)
+{
+	while (printed--)
+		write(1, &(*buf++), 1);
+}
 
 int	ft_vsprintf(char *buf, const char *fmt, va_list args)
 {
@@ -45,6 +51,6 @@ int	ft_printf(const char *fmt, ...)
 	va_start(args, fmt);
 	printed = ft_vsprintf(buf, fmt, args);
 	va_end(args);
-	ft_putstr_fd(buf, 1);
+	ft_printf_output(printed, buf);
 	return (printed);
 }

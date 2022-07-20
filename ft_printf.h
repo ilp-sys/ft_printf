@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 20:23:29 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/20 12:06:19 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/20 13:38:37 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int			do_div(long *n, long base);
 //ft_printf.c
 int			ft_printf(const char *fmt, ...);
 int			ft_vsprintf(char *buf, const char *fmt, va_list args);
+void		ft_printf_output(int printed, char *buf);
 
 //ft_printf_check.c
 int			check_flag(const char **fmt);
