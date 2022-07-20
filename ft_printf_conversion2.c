@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 22:42:22 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 20:09:56 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/20 10:20:06 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ char	*conversion_p(char *str, t_info info, va_list args)
 		info.width = 2 * sizeof(void *);
 		info.flag |= ZEROPAD;
 	}
-	p = va_arg(args, void *);
-	str = print_numbers(str, (long)p, BASE_HEX, info);
+	p = (long)va_arg(args, void *);
+	str = print_numbers(str, p, BASE_HEX, info);
 	return (str);
 }
 

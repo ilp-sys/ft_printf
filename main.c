@@ -6,11 +6,11 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:50:47 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 17:23:31 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/20 09:44:08 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 int main()
@@ -43,11 +43,28 @@ int main()
 //	int a8 = ft_printf("%%");
 //	printf("\t Return value: %d\n", a8);
 //
-	/* test5 */
-	int a9 = printf("% 9.7d", 12345);
-	printf("\n Return value: %d\n", a9);
-	int a10 = printf("% 9.7d", 12345);
-	printf("\n Return value: %d\n", a10);
+//	/* test5 */
+//	int a9 = printf("%d", -12345);
+//	printf("\n Return value: %d\n", a9);
+//	int a10 = ft_printf("%d", -12345);
+//	printf("\n Return value: %d\n", a10);
 
+	/* test6 */
+//	int a11 = printf("%s", NULL);
+//	printf("\n Return value: %d\n", a11);
+//	int a12 = ft_printf("%s", NULL);
+//	printf("\n Return value: %d\n", a12);
+//
+//	/* test7 */
+//	int a13 = printf("%s", "");
+//	printf("\n Return value: %d\n", a13);
+//	int a14 = ft_printf("%s", "");
+//	printf("\n Return value: %d\n", a14);
+//
+	/* test8 */
+	int a15 = printf("%p", &c);
+	printf("\n Return value: %d\n", a15);
+	int a16 = ft_printf("%p", &c);
+	printf("\n Return value: %d\n", a16);
 	return 0;
 }
