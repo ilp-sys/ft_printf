@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 21:56:45 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 20:10:40 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/20 09:31:12 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*print_numbers(char *str, long num, int base, t_info info)
 	t_chars	chars;
 
 	print_numbers_set_flag(&chars, base, &info);
-	print_numbers_set_sign(&chars, num, &info);
+	print_numbers_set_sign(&chars, &num, &info);
 	tmp = print_numbers_get_digits(num, base, &chars);
 	str = print_numbers_fill_str(str, tmp, chars, info);
 	free(tmp);

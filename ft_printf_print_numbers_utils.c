@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 12:51:02 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 20:12:03 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/20 09:31:39 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_numbers_set_flag(t_chars *chars, int base, t_info *info)
 	chars->locase = (info->flag & SMALL);
 	if (info->flag & LEFT)
 		info->flag &= ~ZEROPAD;
-	if (info->flag == '0')
+	if (info->flag & ZEROPAD)
 		chars->c = '0';
 	else
 		chars->c = ' ';
@@ -26,15 +26,15 @@ void	print_numbers_set_flag(t_chars *chars, int base, t_info *info)
 			info->width -= 2;
 }
 
-void	print_numbers_set_sign(t_chars *chars, long num, t_info *info)
+void	print_numbers_set_sign(t_chars *chars, long *num, t_info *info)
 {
 	chars->sign = 0;
 	if (info->flag & SIGN)
 	{
-		if (num < 0)
+		if (*num < 0)
 		{
 			chars->sign = '-';
-			num = -num;
+			*num = -(*num);
 			info->width--;
 		}
 		else if (info->flag & PLUS)

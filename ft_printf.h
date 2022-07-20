@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 20:23:29 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/19 15:02:32 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/07/20 09:30:46 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char		*print_numbers(char *str, long num, int base, t_info info);
 
 //ft_printf_print_numbers_utils.c
 void		print_numbers_set_flag(t_chars *chars, int base, t_info *info);
-void		print_numbers_set_sign(t_chars *chars, long num, t_info *info);
+void		print_numbers_set_sign(t_chars *chars, long *num, t_info *info);
 char		*print_numbers_get_digits(long num, int base, t_chars *chars);
 char		*print_numbers_fill_str(char *str, char *tmp, \
 		t_chars chars, t_info info);
