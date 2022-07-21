@@ -15,32 +15,37 @@
 char	*conversion_c(char *str, t_info info, va_list args)
 {
 	if (!(info.flag & LEFT))
-		str = set_width(str, 0, ' ', &info.width);
+		while (--info.width > 0)
+			*str++ = ' ';
 	*str++ = va_arg(args, int);
-	str = set_width(str, 0, ' ', &info.width);
+	while (--info.width > 0)
+		*str++ = ' ';
 	return (str);
 }
 
 char	*conversion_s(char *str, t_info info, va_list args)
 {
-	int			i;
-	int			len;
-	const char	*nullstr = "(null)";
-	const char	*s = va_arg(args, char *);
+	int		i;
+	int		len;
+	char	*s;
 
 	i = 0;
+	s = va_arg(args, char *);
 	if (s == NULL)
-		while (*nullstr)
-			*str++ = *nullstr++;
-	else if (info.precision != -1)
-		len = ft_strnlen(s, info.precision);
-	else 
+		s = "(null)";
+
+	if (info.precision == -1)
 		len = ft_strlen(s);
+	else
+		len = ft_strnlen(s, info.precision);
+
 	if (!(info.flag & LEFT))
-		str = set_width(str, len, ' ', &info.width);
-	while (s && *s)
+		while (len < info.width--)
+			*str++ = ' ';
+	while (i++ < len)
 		*str++ = *s++;
-	str = set_width(str, len, ' ', &info.width);
+	while (len < info.width--)
+		*str++ = ' ';
 	return (str);
 }
 

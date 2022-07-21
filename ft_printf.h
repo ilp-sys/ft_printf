@@ -51,7 +51,6 @@ int			do_div(long *n, long base);
 //ft_printf.c
 int			ft_printf(const char *fmt, ...);
 int			ft_vsprintf(char *buf, const char *fmt, va_list args);
-void		ft_printf_output(int printed, char *buf);
 
 //ft_printf_check.c
 int			check_flag(const char **fmt);

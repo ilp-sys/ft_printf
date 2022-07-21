@@ -16,13 +16,6 @@ char	*conversion_p(char *str, t_info info, va_list args)
 {
 	void	*p;
 
-	//debug
-//	if (info.width == -1)
-//	{
-//		info.width = 2 * sizeof(void *);
-//		info.flag |= ZEROPAD;
-//	}
-	//debug
 	info.flag |= (SPECIAL + SMALL);
 	p = va_arg(args, void *);
 	str = print_numbers(str, (uintptr_t)p, BASE_HEX, info);

@@ -12,11 +12,6 @@
 
 #include "ft_printf.h"
 
-void	ft_printf_output(int printed, char *buf)
-{
-	write(1, buf, printed);
-}
-
 int	ft_vsprintf(char *buf, const char *fmt, va_list args)
 {
 	char	*str;
@@ -50,6 +45,6 @@ int	ft_printf(const char *fmt, ...)
 	va_start(args, fmt);
 	printed = ft_vsprintf(buf, fmt, args);
 	va_end(args);
-	ft_printf_output(printed, buf);
+	write(1, buf, printed);
 	return (printed);
 }
