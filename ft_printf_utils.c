@@ -27,7 +27,7 @@ int	skip_atoi(const char ***s)
 
 char	*set_width(char *str, int len, char c, int *width)
 {
-	while (len < *width--)
+	while (len < --(*width))
 		*str++ = c;
 	return (str);
 }
@@ -36,7 +36,7 @@ int	do_div(long *n, long base)
 {
 	int	res;
 
-	res = *n % base;
-	*n /= base;
+	res = (unsigned long)*n % base;
+	*n = (unsigned long)*n / base;
 	return (res);
 }

@@ -14,8 +14,7 @@
 
 void	ft_printf_output(int printed, char *buf)
 {
-	while (printed--)
-		write(1, &(*buf++), 1);
+	write(1, buf, printed);
 }
 
 int	ft_vsprintf(char *buf, const char *fmt, va_list args)
