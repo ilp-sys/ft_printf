@@ -50,7 +50,7 @@ void	print_numbers_set_sign(t_chars *chars, long *num, t_info *info)
 	}
 }
 
-char	*print_numbers_get_digits(long num, int base, t_chars *chars)
+char	*print_numbers_get_digits(long num, int base, t_chars *chars, t_info info)
 {
 	int					i;
 	char				*tmp;
@@ -60,9 +60,9 @@ char	*print_numbers_get_digits(long num, int base, t_chars *chars)
 	tmp = (char *)malloc(sizeof(char) * 66);
 	if (!tmp)
 		return (NULL);
-	if (num == 0)
+	if (num == 0 && !(info.precision == 0))
 		tmp[i++] = '0';
-	else
+	else if (num != 0)
 		while (num != 0)
 			tmp[i++] = (digits[do_div(&num, base)] | chars->locase);
 	tmp[i] = '\0';

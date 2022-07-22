@@ -27,8 +27,7 @@ int	skip_atoi(const char ***s)
 
 char	*set_width(char *str, int len, char c, int *width)
 {
-	//while (len < --(*width))
-	while (len < *width--)
+	while (len < (*width)--)
 		*str++ = c;
 	return (str);
 }

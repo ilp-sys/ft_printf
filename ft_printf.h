@@ -73,7 +73,7 @@ char		*print_numbers(char *str, long num, int base, t_info info);
 //ft_printf_print_numbers_utils.c
 void		print_numbers_set_flag(t_chars *chars, int base, t_info *info);
 void		print_numbers_set_sign(t_chars *chars, long *num, t_info *info);
-char		*print_numbers_get_digits(long num, int base, t_chars *chars);
+char		*print_numbers_get_digits(long num, int base, t_chars *chars, t_info info);
 char		*print_numbers_fill_str(char *str, char *tmp, \
 		t_chars chars, t_info info);
 

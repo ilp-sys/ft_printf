@@ -316,9 +316,11 @@ int ft_printf(const char *fmt, ...)
 
 int main()
 {
-	int a = printf("%10p", (void*)3);
-	printf("Return value :%d\n", a);
-	int b = ft_printf("%10p", (void*)3);
-	printf("Return value :%d\n", b);
+//	int a = printf("%10p", (void*)3);
+//	printf("Return value :%d\n", a);
+//	int b = ft_printf("%10p", (void*)3);
+//	printf("Return value :%d\n", b);
+
+	ft_printf("%#x", 0);
 	return 0;
 }

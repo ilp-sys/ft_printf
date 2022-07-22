@@ -33,9 +33,12 @@ char	*conversion_int(char *str, t_info info, va_list args)
 
 char	*conversion_x(char *str, t_info info, va_list args)
 {
+	long	num;
+
 	if (info.flag & SIGN)
-		str = print_numbers(str, va_arg(args, int), BASE_HEX, info);
+		num = va_arg(args, int);
 	else
-		str = print_numbers(str, va_arg(args, unsigned int), BASE_HEX, info);
+		num = va_arg(args, unsigned int);
+	str = print_numbers(str, num, BASE_HEX, info);
 	return (str);
 }
