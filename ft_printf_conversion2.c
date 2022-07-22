@@ -39,6 +39,8 @@ char	*conversion_x(char *str, t_info info, va_list args)
 		num = va_arg(args, int);
 	else
 		num = va_arg(args, unsigned int);
+	if (num == 0)
+		info.flag |= NULLIFY;
 	str = print_numbers(str, num, BASE_HEX, info);
 	return (str);
 }

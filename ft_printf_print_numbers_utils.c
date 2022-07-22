@@ -82,7 +82,7 @@ char	*print_numbers_fill_str(char *str, char *tmp, \
 		str = set_width(str, 0, ' ', &info.width);
 	if (chars.sign)
 		*str++ = chars.sign;
-	if (info.flag & SPECIAL)
+	if (info.flag & SPECIAL && !(info.flag & NULLIFY))
 	{
 		*str++ = '0';
 		*str++ = ('X' | chars.locase);

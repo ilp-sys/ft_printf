@@ -24,6 +24,7 @@
 # define LEFT    16
 # define SMALL   32
 # define SPECIAL 64
+# define NULLIFY 128
 
 # define BASE_DEC 10
 # define BASE_HEX 16
