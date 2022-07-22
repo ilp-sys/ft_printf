@@ -49,12 +49,22 @@ static char *number(char *str, long num, int base, int size, int precision, int 
 
 	/* locase = 0 or 0x20. ORing digits or letters with 'locase'
 	 * produces same digits or (maybe lowercased) letters */
+
+	//set flag 
 	locase = (type & SMALL);
 	if (type & LEFT)
 		type &= ~ZEROPAD;
 	if (base < 2 || base > 16)
 		return NULL;
 	c = (type & ZEROPAD) ? '0' : ' ';
+	if (type & SPECIAL) {
+		if (base == 16)
+			size -= 2;
+		else if (base == 8)
+			size--;
+	}
+
+	//set sign
 	sign = 0;
 	if (type & SIGN) {
 		if (num < 0) {
@@ -69,12 +79,8 @@ static char *number(char *str, long num, int base, int size, int precision, int 
 			size--;
 		}
 	}
-	if (type & SPECIAL) {
-		if (base == 16)
-			size -= 2;
-		else if (base == 8)
-			size--;
-	}
+
+	//get_digit
 	i = 0;
 	if (num == 0)
 		tmp[i++] = '0';
@@ -310,9 +316,9 @@ int ft_printf(const char *fmt, ...)
 
 int main()
 {
-	int a = printf("%30p", (void*)3);
+	int a = printf("%10p", (void*)3);
 	printf("Return value :%d\n", a);
-	int b = ft_printf("%30p", (void*)3);
+	int b = ft_printf("%10p", (void*)3);
 	printf("Return value :%d\n", b);
 	return 0;
 }
