@@ -17,13 +17,17 @@ void	print_numbers_set_flag(t_chars *chars, int base, t_info *info)
 	chars->locase = (info->flag & SMALL);
 	if (info->flag & LEFT)
 		info->flag &= ~ZEROPAD;
+	else if (info->precision != -1)
+		info->flag &= ~ZEROPAD;
 	if (info->flag & ZEROPAD)
 		chars->c = '0';
 	else
 		chars->c = ' ';
 	if (info->flag & SPECIAL)
+	{
 		if (base == BASE_HEX)
 			info->width -= 2;
+	}
 }
 
 void	print_numbers_set_sign(t_chars *chars, long *num, t_info *info)
@@ -58,14 +62,17 @@ char	*print_numbers_get_digits(long num, int base, t_chars *chars, t_info info)
 
 	i = 0;
 	tmp = (char *)malloc(sizeof(char) * 66);
-	if (!tmp)
-		return (NULL);
-	if (num == 0 && !(info.precision == 0))
-		tmp[i++] = '0';
-	else if (num != 0)
-		while (num != 0)
-			tmp[i++] = (digits[do_div(&num, base)] | chars->locase);
-	tmp[i] = '\0';
+	if (tmp)
+	{
+		if (num == 0 && !(info.precision == 0))
+			tmp[i++] = '0';
+		else if (num != 0)
+		{
+			while (num != 0)
+				tmp[i++] = (digits[do_div(&num, base)] | chars->locase);
+		}
+		tmp[i] = '\0';
+	}
 	return (tmp);
 }
 

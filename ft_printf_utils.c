@@ -32,6 +32,7 @@ char	*set_width(char *str, int len, char c, int *width)
 	return (str);
 }
 
+// TODO - change retern type int to size_t
 int	do_div(long *n, long base)
 {
 	int	res;

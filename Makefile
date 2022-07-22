@@ -21,21 +21,21 @@ ARFLAGS = -rcs
 
 RM = rm
 
-LIBFT_DIR = ./libft/
+LIBFT_DIR = libft
 LIBFT_LIB = libft.a
 
-SRCS = ft_printf.c ft_printf_utils.c ft_printf_check.c \
-	ft_printf_conversion1.c ft_printf_conversion2.c \
-	ft_printf_print_numbers.c ft_printf_print_numbers_utils.c
+SRCS =	ft_printf.c ft_printf_utils.c ft_printf_check.c \
+		ft_printf_conversion1.c ft_printf_conversion2.c \
+		ft_printf_print_numbers.c ft_printf_print_numbers_utils.c
 
-OBJ_DIR = ./obj/
+OBJ_DIR = obj/
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 
 all : $(NAME)
 
 clean :
 	$(RM) -f $(OBJS)
-	rmdir $(OBJ_DIR)
+	@rmdir $(OBJ_DIR)
 
 fclean : clean
 	$(RM) -f $(NAME)
@@ -47,7 +47,7 @@ bonus : all
 
 $(NAME) : $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR) all
-	cp $(LIBFT_DIR)$(LIBFT_LIB) $@
+	@cp $(LIBFT_DIR)$(LIBFT_LIB) $@
 	$(AR) $(ARFLAGS) $@ $^
 	 
 $(OBJ_DIR)%.o : %.c

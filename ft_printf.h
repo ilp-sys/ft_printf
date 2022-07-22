@@ -17,14 +17,14 @@
 # include <stdint.h>
 # include "libft/libft.h"
 
-# define ZEROPAD 1
-# define SIGN    2
-# define PLUS    4
-# define SPACE   8
-# define LEFT    16
-# define SMALL   32
-# define SPECIAL 64
-# define NULLIFY 128
+# define ZEROPAD 0x01
+# define SIGN    0x02
+# define PLUS    0x04
+# define SPACE   0x08
+# define LEFT    0x10
+# define SMALL	 0x20 
+# define SPECIAL 0x40 
+# define NULLIFY 0x80
 
 # define BASE_DEC 10
 # define BASE_HEX 16
