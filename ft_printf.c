@@ -12,39 +12,45 @@
 
 #include "ft_printf.h"
 
-int	ft_vsprintf(char *buf, const char *fmt, va_list args)
+static void	init_buf(t_str *buf)
 {
-	char	*str;
+	buf->len = 0;
+	buf->str = (char *)malloc(sizeof(char) * BUFSIZE);
+}
+
+t_str	ft_vsprintf(const char *fmt, va_list args)
+{
+	t_str	buf;
 	t_info	info;
 
-	str = buf;
 	while (*fmt)
 	{
 		if (*fmt != '%')
 		{
-			*str++ = *fmt++;
+			buf.str[buf.len++] = *fmt++;
 			continue ;
 		}
 		++fmt;
 		info.flag = check_flag(&fmt);
 		info.width = check_width(&fmt);
 		info.precision = check_precision(&fmt);
-		str = check_conversion(str, info, &fmt, args);
+		buf = check_conversion(buf, info, &fmt, args);
 		fmt++;
 	}
-	*str = '\0';
-	return (str - buf);
+	buf.str[buf.len] = '\0';
+	return (buf);
 }
 
 int	ft_printf(const char *fmt, ...)
 {
-	char	buf[BUFSIZE];
+	t_str	buf;
 	va_list	args;
-	int		printed;
 
+	init_buf(&buf);
 	va_start(args, fmt);
-	printed = ft_vsprintf(buf, fmt, args);
+	buf = ft_vsprintf(buf, fmt, args);
 	va_end(args);
-	write(1, buf, printed);
-	return (printed);
+	write(1, buf.str, buf.len);
+	free(buf.str);
+	return (buf.len);
 }

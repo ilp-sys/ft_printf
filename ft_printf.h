@@ -30,6 +30,12 @@
 # define BASE_HEX 16
 # define BUFSIZE 1024
 
+typedef struct s_str
+{
+	int		len;
+	char	*str;
+}				t_str;
+
 typedef struct s_info
 {
 	int	flag;
@@ -51,22 +57,23 @@ int			do_div(long *n, long base);
 
 //ft_printf.c
 int			ft_printf(const char *fmt, ...);
-int			ft_vsprintf(char *buf, const char *fmt, va_list args);
+t_str		ft_vsprintf(const char *fmt, va_list args);
+void		init_buf(t_str *buf);
 
 //ft_printf_check.c
 int			check_flag(const char **fmt);
 int			check_width(const char **fmt);
 int			check_precision(const char **fmt);
-char		*check_conversion(char *str, t_info info, \
+t_str		check_conversion(t_str buf, t_info info, \
 		const char **fmt, va_list args);
 
 //fr_printf_conversion1.c & fr_printf_conversion2.c
-char		*conversion_c(char *str, t_info info, va_list args);
-char		*conversion_s(char *str, t_info info, va_list args);
-char		*conversion_percent(char *str);
-char		*conversion_p(char *str, t_info info, va_list args);
-char		*conversion_int(char *str, t_info info, va_list args);
-char		*conversion_x(char *str, t_info info, va_list args);
+t_str	conversion_c(char *str, t_info info, va_list args);
+t_str	conversion_s(char *str, t_info info, va_list args);
+t_str	conversion_percent(char *str);
+t_str	conversion_p(char *str, t_info info, va_list args);
+t_str	conversion_int(char *str, t_info info, va_list args);
+t_str	conversion_x(char *str, t_info info, va_list args);
 
 //ft_printf_print_numbers.c
 char		*print_numbers(char *str, long num, int base, t_info info);
