@@ -21,7 +21,7 @@ ARFLAGS = -rcs
 
 RM = rm
 
-LIBFT_DIR = libft
+LIBFT_DIR = libft/
 LIBFT_LIB = libft.a
 
 SRCS =	ft_printf.c ft_printf_utils.c ft_printf_check.c \

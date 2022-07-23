@@ -14,6 +14,10 @@
 ## 1. Implementation
 
 ####  How the printf's buffer works?
+Buffer is a block of memory which belongs to a kernal stream and is used to hold stream adta temporarily.
+Stdout is line buffered by default(ISO).
+Characters written to a line buffered stream are transmitted to the file in blocks when a newline character is encountered.
+
 ####  Parameters 
 	printf    : %[Flag][Width][.Precision][Length]Specifier
 	ft_printf : %[Flag][Width][.Precision]Specifier
@@ -21,7 +25,7 @@
 notes!
 - Precision `.` means `.0`.
 - A precision of 0 means that no character is written for the value 0.
-- For integer numbers 0 flag is ignored if the precision is explicitly specified, also ignored if - flag is present.
+- For integer, numbers `0 flag` is ignored if the precision is explicitly specified, also ignored when `- flag` is present.
 ####  Flag dependancies
 |spec/flag   | %c | %s  | %p  | %d  | %i  | %u | %x | %X | %% |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---: | :---: | :---: | :---:| 
