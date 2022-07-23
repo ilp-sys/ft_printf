@@ -6,29 +6,61 @@
 
 
 ## 0. Based Concepts
- - `Variadic arguments ` in <stdarg.h>
+ - `Variadic arguments` in `<stdarg.h>`
  - Handling a number of arguments
  - Standard output's `buffer I/O`
  - Condition checks using `flags` (or `bitwise calculation`)
 
 ## 1. Implementation
 
-#### - Structure of printf's arguments
+####  How the printf's buffer works?
+####  Parameters 
+	printf    : %[Flag][Width][.Precision][Length]Specifier
+	ft_printf : %[Flag][Width][.Precision]Specifier
 
-#### - How the buffer works?
+notes!
+- Precision `.` means `.0`.
+- A precision of 0 means that no character is written for the value 0.
+- For integer numbers 0 flag is ignored if the precision is explicitly specified, also ignored if - flag is present.
+####  Flag dependancies
+|spec/flag   | %c | %s  | %p  | %d  | %i  | %u | %x | %X | %% |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---: | :---: | :---: | :---:| 
+|  width   |o|o|o|o|o|o|o|o|x|
+| precision|x|o|o|o|o|x|o|o|x|
+| -        |o|o|o|o|o|o|o|o|x|
+| 0        |x|x|o|o|o|x|o|o|x|
+| #        |x|x|x|x|x|x|o|o|x|
+| SPACE    |x|x|o|o|x|x|x|x|x|
+| +        |x|x|o|o|x|x|x|x|x|
 
-#### - Relations among the flags
+#### Tags
+```
+
+                         / check_flag
+                         - check_width
+ft_printf - ft_vsprintf  - check_precision
+                         \ check_conversion - conversion %, c, s
+                                            \ conversion p, int, x - print_numbers
+
+```
 
 ## 2. Makefile
+```
+$(NAME) : $(OBJS)
+	$(MAKE) -C $(LIBFT_DIR) all	  //go into the libft dir and run make all
+	@cp $(LIBFT_DIR) $(LIBFT_LIB) $@ //cp the archived file as the name of the target
+	$(AR) $@ $^	                //append printf's objs
+```
 
 ## 3. Reference
-[tovalds github](https://github.com/torvalds/linux/blob/master/arch/x86/boot/printf.c) <br>
-[apple opensource](https://opensource.apple.com/source/xnu/xnu-201/osfmk/kern/printf.c.auto.html)<br>
-[cpp reference](https://en.cppreference.com/w/c/io/fprintf)<br>
-[setbuf linx man page](https://man7.org/linux/man-pages/man3/setvbuf.3.html)<br>
+- [tovalds github](https://github.com/torvalds/linux/blob/master/arch/x86/boot/printf.c) <br>
+- [apple opensource](https://opensource.apple.com/source/xnu/xnu-201/osfmk/kern/printf.c.auto.html)<br>
+- [cpp reference](https://en.cppreference.com/w/cpp/io/c/fprintf)<br>
+- [libc printf](https://android.googlesource.com/kernel/lk/+/9d564f1bd646819a9824c5a55c73521cb4f8fb81/lib/libc/printf.c)
 
----
-[Tester](https://github.com/paulo-santana/ft_printf_tester) 
+## 4. Tester
+- [paulo-santana](https://github.com/paulo-santana/ft_printf_tester) - examine over a thousand cases. <br>
+- [francinette](https://github.com/xicodomingues/francinette) - Integrated testing framework for 42
 
 ---
 Any suggestions or inputs are always welcomed! <br>
