@@ -14,7 +14,7 @@
 ## 1. Implementation
 
 ####  How the printf's buffer works?
-Buffer is a block of memory which belongs to a kernal stream and is used to hold stream adta temporarily.
+Buffer is a block of memory which belongs to a kernal stream and is used to hold stream data temporarily.
 Stdout is line buffered by default(ISO).
 Characters written to a line buffered stream are transmitted to the file in blocks when a newline character is encountered.
 

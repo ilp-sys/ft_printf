@@ -15,10 +15,8 @@
 char	*conversion_c(char *str, t_info info, va_list args)
 {
 	if (!(info.flag & LEFT))
-	{
 		while (--info.width > 0)
 			*str++ = ' ';
-	}
 	*str++ = va_arg(args, int);
 	while (--info.width > 0)
 		*str++ = ' ';
@@ -39,7 +37,6 @@ char	*conversion_s(char *str, t_info info, va_list args)
 		len = ft_strlen(s);
 	else
 		len = ft_strnlen(s, info.precision);
-
 	if (!(info.flag & LEFT))
 		while (len < info.width--)
 			*str++ = ' ';

@@ -54,7 +54,8 @@ void	print_numbers_set_sign(t_chars *chars, long *num, t_info *info)
 	}
 }
 
-char	*print_numbers_get_digits(long num, int base, t_chars *chars, t_info info)
+char	*print_numbers_get_digits(long num, int base, \
+		t_chars *chars, t_info info)
 {
 	int					i;
 	char				*tmp;

@@ -316,10 +316,15 @@ int ft_printf(const char *fmt, ...)
 
 int main()
 {
-//	int a = printf("%30.20x", -1);
-//	printf("Return value :%d\n", a);
-	int b = ft_printf("%30.20x", -1);
-	printf("Return value :%d\n", b);
+//	char str[1500];
+//	memset(str, 1, 1500);
+//	int b = ft_printf("%s", str);
+//	printf("Return value :%d\n", b);
+
+	a = printf("!%#40.31x!", 0);
+	printf("\nreturn value %d\n", a);
+	b = ft_printf("!%#40.31x!", 0);
+	printf("\nreturn value %d\n", b);
 
 	return 0;
 }
