@@ -23,7 +23,7 @@ void	print_numbers_set_flag(t_chars *chars, int base, t_info *info)
 		chars->c = '0';
 	else
 		chars->c = ' ';
-	if (info->flag & SPECIAL)
+	if (info->flag & SPECIAL && !(info->flag & NULLIFY))
 	{
 		if (base == BASE_HEX)
 			info->width -= 2;
