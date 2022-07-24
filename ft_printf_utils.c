@@ -32,7 +32,6 @@ t_str	set_width(t_str buf, int len, char c, int *width)
 	return (buf);
 }
 
-// TODO - change retern type int to size_t
 int	do_div(long *n, long base)
 {
 	int	res;
@@ -42,7 +41,6 @@ int	do_div(long *n, long base)
 	return (res);
 }
 
-// TODO - errno when allocation fails
 void	check_buf(t_str *buf)
 {
 	void	*ptr;
