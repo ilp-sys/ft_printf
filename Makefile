@@ -35,7 +35,7 @@ all : $(NAME)
 
 clean :
 	$(RM) -f $(OBJS)
-	@rmdir $(OBJ_DIR)
+	$(RM) -rf $(OBJ_DIR)
 
 fclean : clean
 	$(RM) -f $(NAME)

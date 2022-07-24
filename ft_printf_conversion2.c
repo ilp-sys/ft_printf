@@ -12,26 +12,26 @@
 
 #include "ft_printf.h"
 
-char	*conversion_p(char *str, t_info info, va_list args)
+t_str	conversion_p(t_str buf, t_info info, va_list args)
 {
 	void	*p;
 
 	info.flag |= (SPECIAL + SMALL);
 	p = va_arg(args, void *);
-	str = print_numbers(str, (uintptr_t)p, BASE_HEX, info);
-	return (str);
+	buf = print_numbers(buf, (uintptr_t)p, BASE_HEX, info);
+	return (buf);
 }
 
-char	*conversion_int(char *str, t_info info, va_list args)
+t_str	conversion_int(t_str buf, t_info info, va_list args)
 {
 	if (info.flag & SIGN)
-		str = print_numbers(str, va_arg(args, int), BASE_DEC, info);
+		buf = print_numbers(buf, va_arg(args, int), BASE_DEC, info);
 	else
-		str = print_numbers(str, va_arg(args, unsigned int), BASE_DEC, info);
-	return (str);
+		buf = print_numbers(buf, va_arg(args, unsigned int), BASE_DEC, info);
+	return (buf);
 }
 
-char	*conversion_x(char *str, t_info info, va_list args)
+t_str	conversion_x(t_str buf, t_info info, va_list args)
 {
 	long	num;
 
@@ -41,6 +41,6 @@ char	*conversion_x(char *str, t_info info, va_list args)
 		num = va_arg(args, unsigned int);
 	if (num == 0)
 		info.flag |= NULLIFY;
-	str = print_numbers(str, num, BASE_HEX, info);
-	return (str);
+	buf = print_numbers(buf, num, BASE_HEX, info);
+	return (buf);
 }

@@ -77,7 +77,7 @@ char	*print_numbers_get_digits(long num, int base, \
 	return (tmp);
 }
 
-char	*print_numbers_fill_str(char *str, char *tmp, \
+t_str	print_numbers_fill_str(t_str buf, char *tmp, \
 		t_chars chars, t_info info)
 {
 	int	i;
@@ -87,21 +87,21 @@ char	*print_numbers_fill_str(char *str, char *tmp, \
 		info.precision = i;
 	info.width -= info.precision;
 	if (!(info.flag & (ZEROPAD + LEFT)))
-		str = set_width(str, 0, ' ', &info.width);
+		buf = set_width(buf, 0, ' ', &info.width);
 	if (chars.sign)
-		*str++ = chars.sign;
+		buf = append_char_to_buf(buf, chars.sign);
 	if (info.flag & SPECIAL && !(info.flag & NULLIFY))
 	{
-		*str++ = '0';
-		*str++ = ('X' | chars.locase);
+		buf = append_char_to_buf(buf, '0');
+		buf = append_char_to_buf(buf, 'X' | chars.locase);
 	}
 	if (!(info.flag & LEFT))
-		str = set_width(str, 0, chars.c, &info.width);
+		buf = set_width(buf, 0, chars.c, &info.width);
 	while (i < info.precision--)
-		*str++ = '0';
+		buf = append_char_to_buf(buf, '0');
 	while (i-- > 0)
-		*str++ = tmp[i];
+		buf = append_char_to_buf(buf, tmp[i]);
 	while (info.width-- > 0)
-		*str++ = ' ';
-	return (str);
+		buf = append_char_to_buf(buf, ' ');
+	return (buf);
 }

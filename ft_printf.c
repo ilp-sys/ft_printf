@@ -23,11 +23,12 @@ t_str	ft_vsprintf(const char *fmt, va_list args)
 	t_str	buf;
 	t_info	info;
 
+	init_buf(&buf);
 	while (*fmt)
 	{
 		if (*fmt != '%')
 		{
-			buf.str[buf.len++] = *fmt++;
+			buf = append_char_to_buf(buf, *fmt++);
 			continue ;
 		}
 		++fmt;
@@ -37,7 +38,6 @@ t_str	ft_vsprintf(const char *fmt, va_list args)
 		buf = check_conversion(buf, info, &fmt, args);
 		fmt++;
 	}
-	buf.str[buf.len] = '\0';
 	return (buf);
 }
 
@@ -46,9 +46,8 @@ int	ft_printf(const char *fmt, ...)
 	t_str	buf;
 	va_list	args;
 
-	init_buf(&buf);
 	va_start(args, fmt);
-	buf = ft_vsprintf(buf, fmt, args);
+	buf = ft_vsprintf(fmt, args);
 	va_end(args);
 	write(1, buf.str, buf.len);
 	free(buf.str);

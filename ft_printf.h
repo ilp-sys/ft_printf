@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdarg.h>
 # include <stdint.h>
@@ -43,7 +43,7 @@ typedef struct s_info
 	int	precision;
 }				t_info;
 
-typedef struct	s_chars
+typedef struct s_chars
 {
 	char	c;
 	char	sign;
@@ -52,13 +52,14 @@ typedef struct	s_chars
 
 //ft_printf_utils.c
 int			skip_atoi(const char ***s);
-char		*set_width(char *str, int len, char c, int *width);
+t_str		set_width(t_str buf, int len, char c, int *width);
 int			do_div(long *n, long base);
+void		check_buf(t_str *buf);
+t_str		append_char_to_buf(t_str buf, char c);
 
 //ft_printf.c
 int			ft_printf(const char *fmt, ...);
 t_str		ft_vsprintf(const char *fmt, va_list args);
-void		init_buf(t_str *buf);
 
 //ft_printf_check.c
 int			check_flag(const char **fmt);
@@ -68,21 +69,22 @@ t_str		check_conversion(t_str buf, t_info info, \
 		const char **fmt, va_list args);
 
 //fr_printf_conversion1.c & fr_printf_conversion2.c
-t_str	conversion_c(char *str, t_info info, va_list args);
-t_str	conversion_s(char *str, t_info info, va_list args);
-t_str	conversion_percent(char *str);
-t_str	conversion_p(char *str, t_info info, va_list args);
-t_str	conversion_int(char *str, t_info info, va_list args);
-t_str	conversion_x(char *str, t_info info, va_list args);
+t_str		conversion_c(t_str buf, t_info info, va_list args);
+t_str		conversion_s(t_str buf, t_info info, va_list args);
+t_str		conversion_percent(t_str buf);
+t_str		conversion_p(t_str buf, t_info info, va_list args);
+t_str		conversion_int(t_str buf, t_info info, va_list args);
+t_str		conversion_x(t_str buf, t_info info, va_list args);
 
 //ft_printf_print_numbers.c
-char		*print_numbers(char *str, long num, int base, t_info info);
+t_str		print_numbers(t_str buf, long num, int base, t_info info);
 
 //ft_printf_print_numbers_utils.c
 void		print_numbers_set_flag(t_chars *chars, int base, t_info *info);
 void		print_numbers_set_sign(t_chars *chars, long *num, t_info *info);
-char		*print_numbers_get_digits(long num, int base, t_chars *chars, t_info info);
-char		*print_numbers_fill_str(char *str, char *tmp, \
+char		*print_numbers_get_digits(long num, int base, \
+		t_chars *chars, t_info info);
+t_str		print_numbers_fill_str(t_str buf, char *tmp, \
 		t_chars chars, t_info info);
 
 #endif

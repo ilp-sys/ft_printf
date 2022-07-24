@@ -12,18 +12,18 @@
 
 #include "ft_printf.h"
 
-char	*conversion_c(char *str, t_info info, va_list args)
+t_str	conversion_c(t_str buf, t_info info, va_list args)
 {
 	if (!(info.flag & LEFT))
 		while (--info.width > 0)
-			*str++ = ' ';
-	*str++ = va_arg(args, int);
+			buf = append_char_to_buf(buf, ' ');
+	buf = append_char_to_buf(buf, va_arg(args, int));
 	while (--info.width > 0)
-		*str++ = ' ';
-	return (str);
+		buf = append_char_to_buf(buf, ' ');
+	return (buf);
 }
 
-char	*conversion_s(char *str, t_info info, va_list args)
+t_str	conversion_s(t_str buf, t_info info, va_list args)
 {
 	int		i;
 	int		len;
@@ -39,16 +39,16 @@ char	*conversion_s(char *str, t_info info, va_list args)
 		len = ft_strnlen(s, info.precision);
 	if (!(info.flag & LEFT))
 		while (len < info.width--)
-			*str++ = ' ';
+			buf = append_char_to_buf(buf, ' ');
 	while (i++ < len)
-		*str++ = *s++;
+		buf = append_char_to_buf(buf, *s++);
 	while (len < info.width--)
-		*str++ = ' ';
-	return (str);
+		buf = append_char_to_buf(buf, ' ');
+	return (buf);
 }
 
-char	*conversion_percent(char *str)
+t_str	conversion_percent(t_str buf)
 {
-	*str++ = '%';
-	return (str);
+	buf = append_char_to_buf(buf, '%');
+	return (buf);
 }
