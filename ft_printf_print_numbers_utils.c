@@ -59,7 +59,7 @@ char	*print_numbers_get_digits(long num, int base, \
 {
 	int					i;
 	char				*tmp;
-	static const char	digits[16] = "0123456789ABCDEF";
+	const char	digits[16] = "0123456789ABCDEF";
 
 	i = 0;
 	tmp = (char *)malloc(sizeof(char) * 20);
