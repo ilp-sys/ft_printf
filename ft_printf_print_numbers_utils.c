@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 12:51:02 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/20 11:40:36 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/09/06 12:59:57 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ void	print_numbers_set_sign(t_chars *chars, long *num, t_info *info)
 char	*print_numbers_get_digits(long num, int base, \
 		t_chars *chars, t_info info)
 {
-	int					i;
-	char				*tmp;
+	int			i;
+	char		*tmp;
 	const char	digits[16] = "0123456789ABCDEF";
 
 	i = 0;

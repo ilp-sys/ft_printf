@@ -6,7 +6,7 @@
 /*   By: jiwahn <jiwahn@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:33:38 by jiwahn            #+#    #+#             */
-/*   Updated: 2022/07/20 13:54:35 by jiwahn           ###   ########.fr       */
+/*   Updated: 2022/09/06 12:59:06 by jiwahn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int	ft_printf(const char *fmt, ...)
 	va_start(args, fmt);
 	buf = ft_vsprintf(fmt, args);
 	va_end(args);
-	write(1, buf.str, buf.len);
+	if (write(1, buf.str, buf.len) < 0)
+		buf.len = -1;
 	free(buf.str);
 	return (buf.len);
 }
