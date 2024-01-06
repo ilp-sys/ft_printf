@@ -1,4 +1,4 @@
-# FT_PRINTF [![jiwahn's 42 ft_printf Score](https://badge42.vercel.app/api/v2/cl5mpp96a00400amd35y6oqy6/project/2663121)](https://github.com/JaeSeoKim/badge42)
+# FT_PRINTF
 
     Custom printf of 42 C School
 ---
@@ -66,6 +66,3 @@ $(NAME) : $(OBJS)
 - [paulo-santana](https://github.com/paulo-santana/ft_printf_tester) - examine over a thousand cases. <br>
 - [francinette](https://github.com/xicodomingues/francinette) - Integrated testing framework for 42
 
----
-Any suggestions or inputs are always welcomed! <br>
-More details are in my [personal blog](https://velog.io/@ilp-sys)(Korean)
